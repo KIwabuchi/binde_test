@@ -1,0 +1,21 @@
+#jupyter --paths
+#jupyter kernelspec list
+
+cd /tmp
+git clone https://github.com/LLNL/metall.git
+
+cd /tmp
+wget -q --no-check-certificate https://boostorg.jfrog.io/artifactory/main/release/1.72.0/source/boost_1_72_0.tar.gz
+tar xf boost_1_72_0.tar.gz
+
+cd /tmp
+git clone https://github.com/LLNL/clippy.git
+cd clippy
+python3.8 setup.py install
+git clone https://github.com/LLNL/clippy-cpp.git
+cd clippy-cpp
+mkdir build
+cd build
+cmake ../ -DBOOST_ROOT=/tmp/boost_1_72_0
+make
+cd ../..

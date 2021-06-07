@@ -12,14 +12,6 @@ wget -q --no-check-certificate https://boostorg.jfrog.io/artifactory/main/releas
 tar xf boost_1_72_0.tar.gz
 
 cd /tmp
-wget -q --no-check-certificate https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3.tar.gz
-tar xf cmake-3.20.3.tar.gz
-cd cmake-3.20.3
-./configure
-make
-export CMAKE_DIR=/tmp/cmake-3.20.3
-
-cd /tmp
 wget -q --no-check-certificate https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3-linux-x86_64.tar.gz
 tar xf cmake-3.20.3-linux-x86_64.tar.gz
 export CMAKE_DIR=$PWD/cmake-3.20.3-linux-x86_64

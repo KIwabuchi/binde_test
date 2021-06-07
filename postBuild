@@ -9,6 +9,14 @@ wget -q --no-check-certificate https://boostorg.jfrog.io/artifactory/main/releas
 tar xf boost_1_72_0.tar.gz
 
 cd /tmp
+wget https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3.tar.gz
+tar xf cmake-3.20.3.tar.gz
+cd cmake-3.20.3
+./configure
+make
+export CMAKE_DIR=/tmp/cmake-3.20.3
+
+cd /tmp
 git clone https://github.com/LLNL/clippy.git
 cd clippy
 python3.8 setup.py install
@@ -16,6 +24,6 @@ git clone https://github.com/LLNL/clippy-cpp.git
 cd clippy-cpp
 mkdir build
 cd build
-cmake ../ -DBOOST_ROOT=/tmp/boost_1_72_0
+${CMAKE_DIR}/cmake ../ -DBOOST_ROOT=/tmp/boost_1_72_0
 make
 cd ../..
